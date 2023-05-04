@@ -1,0 +1,341 @@
+
+estructura de la web (! mayus)
+vincular con css.
+<link rel="sylesheet" href="./styles.css">
+
+entre el body, pone la estructura
+<head>
+<main>
+<footer>								
+
+dentro del <body>, 
+ 	<header>
+           <h1>Portfolio</h1>
+<nav>
+    <ul>
+          <li>inicio</li>
+          <l1>sobre mi</li>
+          <li>galeria</li>
+          <li>contacto</li>
+    </ul>
+</nav>
+</header>
+
+
+dentro del main
+   <h2>Bienvenido a mi portfolio</h2>
+   <p> En este portfolio encontrarás una muestra de mi trabajo como fotografo profesional. Espero que disfrutes de mi galeria de imagenes y encuentres algo que te inspire.</p>
+   <section> (*sirve para crear una galeria de imagenes)
+         <h2>Galeria de imagenes</h2>
+   </section>
+
+Crear otro section para separar el about, texto SOBRE MI.
+<section>
+	<h2>Sobre mi</h2>
+	<p>Desde pequeño siempre he sentido una gran pasion por la fotografia, y con el tiempo he convertido esa pasion en mi profesion. Me encanta capturar los momentos mas especiales de la vida, desde los detalles mas pequeños hasta los grandes eventos. Me considero un fotografo creativo y versatil, capaz de adaptarme a cualquier situacion y de encontar la belleza en cualquier escena. Creo que la fotografia es una forma de arte que permite plasmar la vida tal y como es, con todas sus luces y sombras, y me siento un afortunado de poder dedicar mi vida a ella. Siempre estoy buscando nuevos retos y oportunidades para crecer como fotografo, y espero poder compartir mi pasion contigo en cada sesion que hagamos juntos.
+</section>
+
+
+crear otro section para colocar el contacto.
+<section>
+colocar un formulario
+<form>
+
+   <input type="text"> (Sirve para crear un boton para que el lector deje un comentario
+   <input type="email> (el lector coloca su email)
+   <textarea name=""id=""cols="30" rows="10"></textarea>
+   <input type="submit" value="Enviar"> (crear el boton, con la palabra puesta en VALUE)
+</form>
+</section>
+</main>
+
+<footer> 
+   <p>Derechos Reservados</p>
+</footer>
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ PASAR EL CSS\\\\\\\\\\\\\\\\\\\\\\\
+
+*{    (SELECTOR UNIVERSAL)
+    box-sizing:border-box; (BORDE REDONDEADO DE LA PAGINA)
+    font-family:sans-serif; (Formato de las letras)
+}
+
+body{
+	margin:0px;  (Sirve para eliminar el margen del body y el header)
+}
+
+      SELECCIONAMOS EL HEADEAR. (En este caso, PORTFOLIO
+
+header{
+	display:flex; (SIRVE PARA QUE LOS ELEMENTOS SE PONGAN UNO AL LADO DEL OTRO)
+	background-color: (COLOR DE FONDO DEL HEADER)(seleccionar color, inspeccionando el elemento en la pagina, se puede copiar y pegar el color)
+	color:white; (Color de las letras)
+}
+
+
+
+main {
+	padding:0px 100px;   (SIRVE PARA SEPARAR EL BORDE LA PAGINA.) (EL PRIMER NUMERO, ES EL MARGEN DE ARRIBA,EL SEGUNDO EL MARGEN LOS COSTADOS)
+}
+
+
+ul {
+	list-style:none;   (sacar los estilos de lista al UL)
+	display:flex;  (PONE UNO AL LADO DEL OTRO)
+}
+
+volvemos al HEADER
+agregamos en 2do lugar
+justify-content:space-around  (SIRVE PARA SEPARAR LOS ELEMENTOS ENTRE SI Y DEJAR UN ESPACIO ENTRE LOS BORDES)
+en ultimo lugar, agregar
+height:15vh; (para agrandar el header)
+
+Seleccionamos el nav
+
+nav{
+	Width:50%;  (SIRVE PARA EL ANCHO DEL ELEMENTO)
+	diplay:flex;
+}
+
+Volvemos al UL
+
+agregamos
+
+justify-content:space-between;
+width:100% (ocupa el 100% de espacio)
+
+volvemos al nav
+
+agregamos 
+
+	align-items:center;   (alinear los elementos al centro)
+
+Entre el header y main, creamos main h2 (Tomamos los h2 que estan en main solamente)
+
+main h2 {
+	font-size:35px
+}
+
+ahora seleccionamos todos los parrafos que esten en el main
+
+main p {
+	font-size:20px
+}
+
+Colocar las imagenes.
+
+<section>
+	<h2>Galeria de imagenes</h2> 
+creamos un div para contener las imagenes.
+	<div id="galeria-container">
+
+Colocamos las imagenes.
+Copiamos las imagenes en la carpeta del trabajo.
+
+bajo el div GALERIA CONTAINER, creamos la etiqueta img
+	<img src="./img/img-1.jpg" alt=>
+agregamos las imagenes que sean.
+
+lo conectamos con CSS.
+#galeria-container > img {
+	width: 100px;
+}
+
+ahora hay que acomodarlas.
+la seleccionamos en CSS
+
+#galeria-container {
+	display:grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;  (TAMANO DE CADA COLUMNA) (SERIAN 4 fracciones)
+	column-gap:10px (SEPARACION DE FOTOS)
+
+volvemos al #galeria-container> img.
+y agregamos
+	object-fit:cover; (para que ocupe el 100% del espacio)
+	height: 100% (para que ocupe todo el alto)
+
+agreamos en #galeria-container
+grid-template-rows: 400px 400px; (para que sean 2 columnas)
+
+agregamos 
+
+row-gap:20px; (separacion de cada imagen)
+
+
+creamos #galeria-container > img:hover{
+	filter: brightness(0.4);  (sirve para cuando pasas el mousse sobre la imagen, se ponga mas oscura)
+}
+
+
+Vamos al html
+a la section SOBRE MI
+colocamos el h2 SOBRE MI, entre DIV
+Y la imagen la colocamos despues del DIV, abajo.
+
+Al section le colocamos un id
+<section id="about-me">    (PARA ACOMODAR UN ELEMENTO DENTRO DE OTRO ELEMENTO)
+
+
+lo seleccionamos en el CSS 
+#about-me{
+	display:flex (con eso, quedaria la imagen al lado del texto)
+}
+
+seleccionamos la imagen
+#about-me > img {
+	width:250px;
+	}
+
+ahora seleccionamos el texto
+#about-me > div {
+	width:70%
+}
+
+volvemos al contenedor #about-me y agregamos un justify-content, para separar el texto de la imagen
+justify-content:space-between;
+
+Para separar el el texto de la imagen
+ir al contenedor #about-me y colocar un margin top
+	margin-top:250px;
+
+Ahora le ponemos estilos al formulario, la ultima seccion,
+
+vamos al html y creamos un id al ultimo section, la parte del contacto.
+	<section id="contac"
+
+Seleccionamos el formulario en css
+form {
+	width:50%
+	display:flex
+	flex-direction:column (PARA PASAR A COLUMNA)
+	justify-content:space-between;  
+}
+
+
+Seleccionamos los input
+
+form > input {
+	height:40px;
+	border-radius:10px; Sirve para poner los bordes redondeados)
+	border: solid 1px black; (Inspeccionando los elementos, podes copiar el codigo)
+}
+
+Seleccionamos el textarea
+textarea{
+	border-radius:10px;
+	border:solid 1px black;
+}
+
+seleccionamos el input boton
+input[type=submit]{ 
+	width:200px
+}
+
+
+Volvemos al FORM, para seleccionar todos los elementos, y agregamos un align items center, para alinear todos los elementos al centro)
+align-items:center
+
+volemos al form > input, agregamos un width:100% (para que ocupe todo el espacio del label)
+	width:100%;
+
+hacemos lo mismo con el textarea
+	width:100%
+
+agregamos color al Boton enviar.
+vamos al input[type=submit]
+y agregamos
+	background-color: #1f1f1f (codigo de color)
+	color:white (color de texto)
+
+
+seleccionamos contac
+#contac{
+	margin-top:250px; (misma media que lo anterior seccion)
+}
+
+volvemos al html
+
+Abajo de section id contac creamos un h2
+	<h2>contacto</h2>
+completamos el label name y los input
+
+	<label for="name">Tu nombre:</label>
+	<input type="text" id="name">
+	<label for="email">Tu email:</label>
+	<input type="email" id="email"
+	<label for="email">Tu Mensaje:</label>
+	<textarea name=""id="mensaje" cols="30" rows="10"></textarea>
+
+volvemos al css, seleccionamos el Label
+label{
+	width:100%;   (Para que se coloquen del lado izquierdo, al contener el 100%)
+}
+
+
+Volvemos a html, y colocamos toda la ultima seccion entre div
+
+<div>
+	<h2>contacto</h2>	
+		<form>
+		
+
+		</form>
+</div>	
+
+Debajo del div, colocamos la imagen 9
+img src="./img/img-9.jpg" alt="">
+
+volvemos al CSS
+
+en contact agregamos un display flex para que la imagen se coloque a la derecha del texto
+	display:flex;
+	justify-content: space-between;
+
+seleccionamos a los div que estan en la seccion contac
+#contac > div {
+	width:50%;
+}
+
+volvemos al form, y cambiamos el width del 50 al 90%
+	width:90%  
+
+
+tomamos el footer {
+ 	width:100%;
+	background-color:#1f1f1f;
+	color:white;
+	height:15vh;   (para colocar la altura)
+	display:flex
+	justify-content:center
+	align-content:center;
+}
+
+Seleccionamos el parrafo que esta en el footer
+
+footer > p {
+	display:flex;
+	align-items: center;
+}
+
+Al footer le agregamos un margin top igual que al #contac
+al principio, colocamos
+	margin-top:250px;
+
+volvemos al header. Le agregamos al final un fixed (Para que la imagen quede fija cuando nos movemos por la pagina)
+	position:fixed;
+	width:100%
+
+
+en main, agregamos un padding top, para la altura del main
+	padding-top:15vh;
+
+
+volvemos al header, y colocamos al final un z-index:2 (para que las imagenes no tapen el main cuando pasas el mousse)
+	z-index:2;
+
+
+
+
+
+
+
